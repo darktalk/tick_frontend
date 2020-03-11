@@ -6,25 +6,34 @@
             <Login v-on:loginSuccess='loginSuccess'></Login>
             <el-row>
                 <el-col span="2"><div class="grid-content"></div></el-col>
-                <el-col span="10">
+                <el-col span="22">
                     <br>
                     <!--打卡组件单元-->
                     <TickItem v-for="(item,index) in tickItems" v-on:tickTask='tickTask' v-bind:taskInfo="item" v-bind:number="index" :key="index"></TickItem>
+
+                    <br>
+                    <br>
                     <AddTickItem></AddTickItem>
                 </el-col>
-                <el-col span="12">
+            </el-row>
+
+            <br>
+            <br>
+
+            <el-row>
+                <el-col span="24">
                     <el-table
-                    :data="tickedTable"
-                    style="width: 80%; color: black; font-size: 20px; text-align: left">
-                    <el-table-column
-                            prop="date"
-                            label="日期"
-                            width="180">
-                    </el-table-column>
-                    <el-table-column
-                            prop="task"
-                            label="已打卡">
-                    </el-table-column>
+                            :data="tickedTable"
+                            style="width: 100%; color: black; font-size: 15px; text-align: left">
+                        <el-table-column
+                                prop="date"
+                                label="日期"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="task"
+                                label="已打卡">
+                        </el-table-column>
                     </el-table>
                 </el-col>
             </el-row>
@@ -83,6 +92,7 @@ export default {
                   }
               )
           }
+          this.$data.tickedTable.sort((a, b) => (a.date < b.date) ? 1 : ((a.date > b.date) ? -1 : 0));
 },
 ifShowItem: function(task) {
           let date = util.getToday();
@@ -90,6 +100,10 @@ ifShowItem: function(task) {
 
           switch (task.period) {
               case "once":
+                  console.log("第一:");
+                  console.log(task.date);
+                  console.log("第二:");
+                  console.log(date);
                   return task.date === date;
               case "weekly":
                   return new Date(date).getDay() === weekday;
@@ -145,6 +159,7 @@ ifShowItem: function(task) {
                               })
                           }
                       }
+                      this.$data.tickedTable.sort((a, b) => (a.date < b.date) ? 1 : ((a.date > b.date) ? -1 : 0));
                   }
               } else {
                   util.notify(this, '请求数据失败，请刷新页面重试');

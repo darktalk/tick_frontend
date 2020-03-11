@@ -1,5 +1,3 @@
-import mousewheel from "element-ui/src/directives/mousewheel";
-
 export function notify(obj, msg){
     const h = obj.$createElement;
     obj.$notify({
@@ -9,9 +7,9 @@ export function notify(obj, msg){
 
 export function getToday(){
     let today = new Date();
-    return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    
+    return formatDate(today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate());
 }
-
 export function formatDate(date) {
     let elems2 =  date.split("T")[0].split("-");
     let month = elems2[1];

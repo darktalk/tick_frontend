@@ -2,16 +2,16 @@
     <el-dialog
             title="登录"
             :visible.sync="loginDialogVisible"
-            width="40%"
+            width="80%"
             :before-close="onCloseLoginDialog">
         <el-row>
-            <el-col offset="2">
+            <el-col>
                 <label for="telephone">手机号:  </label>
                 <el-input id="telephone" type="tel" v-model="telephone" placeholder="输入手机号" style="width: 60%"></el-input>
             </el-col>
         </el-row>
         <el-row>
-            <el-col offset="2">
+            <el-col>
                 <label for="verifyCode">验证码:  </label>
                 <el-input id = "verifyCode" :disabled="verifyCodeAvail" v-model="verifyCode" placeholder="输入验证码" style="width: 60%;"></el-input>
             </el-col>
@@ -113,8 +113,8 @@
                     console.log("login response:");
                     console.log(JSON.stringify(response));
                     if (response.status === 200 && response.data.retCode === 0) {
-                        this.$cookies.set('sessionId', response.data.sessionId, 3 * 60 * 60 * 24);
-                        this.$cookies.set('telephone', response.data.telephone, 3 * 60 * 60 * 24);
+                        this.$cookies.set('sessionId', response.data.sessionId, 365 * 60 * 60 * 24);
+                        this.$cookies.set('telephone', response.data.telephone, 365 * 60 * 60 * 24);
                         // 验证码确认成功后，走登录流程
                         this.verifySessionId(() => {
                            this.$data.loginDialogVisible = false;

@@ -4,20 +4,20 @@
         <div v-show="detail">
             <el-form ref="form" :rules="rules" :model="task" label-width="80px">
                 <el-form-item label="任务名字" prop="name">
-                    <el-input v-model="task.name" placeholder="输入任务名" style="width: 60% "></el-input>
+                    <el-input v-model="task.name" placeholder="输入任务名" style="width: 100% "></el-input>
                 </el-form-item>
                 <el-form-item label="打卡时间" required>
-                    <el-date-picker type="date" placeholder="选择日期" v-model="task.date" style="width: 50%;"></el-date-picker>
+                    <el-date-picker type="date" placeholder="选择日期" v-model="task.date" style="width: 100%;"></el-date-picker>
                 </el-form-item>
                 <el-form-item label="打卡周期" required>
-                    <el-select v-model="task.period" style="width: 50%" placeholder="打卡周期">
+                    <el-select v-model="task.period" style="width: 100%" placeholder="打卡周期">
                         <el-option label="仅一次" value="once"></el-option>
                         <el-option label="每天" value="everyday"></el-option>
                         <el-option label="每周" value="weekly"></el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="任务详情">
-                    <el-input type="textarea" v-model="task.describe" style="width: 60%"></el-input>
+                    <el-input type="textarea" v-model="task.describe" style="width: 100%"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button @click="onSubmit">添加</el-button>
@@ -40,7 +40,7 @@
                     name: "",
                     date: util.getToday(),
                     describe: "",
-                    period: "everyday",
+                    period: "once",
                     isTickedToday: false,
                 },
                 rules: {
@@ -53,7 +53,7 @@
         },
         methods: {
             addTickItem: function () {
-                this.$data.detail = true;
+                this.$data.detail = !this.$data.detail;
             },
             onCancel: function() {
                 this.$data.detail = false;

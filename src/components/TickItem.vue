@@ -14,26 +14,24 @@
         <div v-show="detail">
                 <el-form ref="form" :rules="rules" :model="tickTask" label-width="80px">
                     <el-form-item label="任务名字" prop="name">
-                        <el-input v-model="tickTask.name" placeholder="输入任务名" style="width: 60% "></el-input>
+                        <el-input v-model="tickTask.name" placeholder="输入任务名" style="width: 100% "></el-input>
                     </el-form-item>
                     <el-form-item label="打卡时间" required>
-                            <el-date-picker type="date" placeholder="选择日期" v-model="tickTask.date" style="width: 50%;"></el-date-picker>
+                            <el-date-picker type="date" placeholder="选择日期" v-model="tickTask.date" style="width: 100% " ></el-date-picker>
                     </el-form-item>
                     <el-form-item label="打卡周期" required>
-                        <el-select v-model="tickTask.period" style="width: 50%" placeholder="打卡周期">
+                        <el-select v-model="tickTask.period" placeholder="打卡周期" style="width: 100% ">
                             <el-option label="仅一次" value="once"></el-option>
                             <el-option label="每天" value="everyday"></el-option>
                             <el-option label="每周" value="weekly"></el-option>
                         </el-select>
                     </el-form-item>
                     <el-form-item label="任务详情">
-                        <el-input type="textarea" v-model="tickTask.describe" style="width: 60%"></el-input>
+                        <el-input type="textarea" v-model="tickTask.describe" style="width: 100% "></el-input>
                     </el-form-item>
-                    <el-form-item>
-                        <el-button @click="onSubmit">确认修改</el-button>
-                        <el-button @click="onDelete">删除任务</el-button>
+                        <el-button @click="onSubmit">修改</el-button>
+                        <el-button @click="onDelete">删除</el-button>
                         <el-button @click="onCancel">取消</el-button>
-                    </el-form-item>
                 </el-form>
         </div>
     </div>
