@@ -100,11 +100,8 @@ ifShowItem: function(task) {
 
           switch (task.period) {
               case "once":
-                  console.log("第一:");
-                  console.log(task.date);
-                  console.log("第二:");
-                  console.log(date);
-                  return task.date === date;
+                  // 如果这个任务是一次性的，那么如果没触发过也要展示出来
+                  return task.date === date || task.tickedDate.length === 0;
               case "weekly":
                   return new Date(date).getDay() === weekday;
               case "everyday":
