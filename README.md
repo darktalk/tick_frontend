@@ -1,24 +1,13 @@
-# tick_frontend
+## 小打卡
 
-## Project setup
-```
-npm install
-```
+### 产品介绍
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+小打卡是一款快速打卡软件，你只需要手机号就可以注册使用
 
-### Compiles and minifies for production
-```
-npm run build
-```
+在登录的情况下，可以看到如下界面
 
-### Lints and fixes files
-```
-npm run lint
-```
+<img src="/Users/lintong/Documents/src/tick_frontend/images/1.jpg" alt="1" style="zoom:150%;" />
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+也可以进行编辑操作
+
+![2](/Users/lintong/Documents/src/tick_frontend/images/2.jpg)
