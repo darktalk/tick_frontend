@@ -11,3 +11,14 @@
 也可以进行编辑操作
 
 ![2](./images/2.jpg)
+
+### 体验环境
+
+可以登录体验环境：www.darktalk.cn
+
+
+
+### 技术栈
+
+1. 前端采用Vue + ElementUI
+2. 后台采用 SpringBoot + Mybatis 
